@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-body">
+      <form (ngSubmit)="buscar()" autocomplete="off">
+        <form autocomplete="off" (ngSubmit)="buscar()">
+          <div class="input-group">
+            <input
+              type="text"
+              name="termino"
+              class="form-control"
+              [(ngModel)]="termino"
+              (input)="teclaPresionada()"
+              [placeholder]="placeholder"
+            />
+            <div class="input-group-prepend">
+              <button type="button" (click)="buscar()" class="btn btn-success">
+                Search...
+              </button>
+            </div>
+          </div>
+        </form>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<!-- Main content -->
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">Multiple Select</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool">
+                <i class="fas fa-info"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-7">
+                <form
+                  [formGroup]="miFormulario"
+                  (ngSubmit)="guardar()"
+                  class="form-horizontal"
+                >
+                  <!-- Group Form Select Region -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Continente :</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" formControlName="region">
+                        <option value="">-- Seleccione Continente --</option>
+                        <option
+                          *ngFor="let region of regiones"
+                          [value]="region | lowercase"
+                        >
+                          {{ region }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Group Form Select Country -->
+                  <div class="form-group row" *ngIf="paises.length > 0">
+                    <label class="col-sm-3 col-form-label">País :</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" formControlName="pais">
+                        <option value="">-- Seleccione País --</option>
+                        <option
+                          *ngFor="let pais of paises"
+                          [value]="pais.alpha3Code"
+                        >
+                          {{ pais.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col" *ngIf="paises.length === 0">
+                    <div class="alert alert-primary">
+                      Paises no disponibles...
+                    </div>
+                  </div>
+                  <!-- Group Form Select Border -->
+                  <div class="form-group row" *ngIf="fronteras.length > 0">
+                    <label class="col-sm-3 col-form-label">Frontera :</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" formControlName="frontera">
+                        <option value="">
+                          -- Seleccione el país fronterizo --
+                        </option>
+                        <option
+                          *ngFor="let frontera of fronteras"
+                          [value]="frontera.alpha3Code"
+                        >
+                          {{ frontera.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col" *ngIf="fronteras.length === 0">
+                    <div class="alert alert-primary">
+                      Fronteras no disponibles...
+                    </div>
+                  </div>
+                  <!-- btn submit -->
+                  <div class="col">
+                    <button
+                      class="btn btn-success"
+                      type="submit"
+                      [disabled]="btnDisabled"
+                    >
+                      Consola
+                    </button>
+                  </div>
+                  <hr />
+                </form>
+              </div>
+
+              <div class="col-md-5">
+                <h6>Estado Del Formulario</h6>
+                <p>Valid: {{ miFormulario.valid }}</p>
+                <p>{{ miFormulario.value | json }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

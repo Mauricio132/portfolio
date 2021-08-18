@@ -1,0 +1,16 @@
+<div class="card-body p-0">
+  <table class="table table-sm">
+    <thead>
+      <th *ngFor="let item of tableHead">
+        {{ item | uppercase }}
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of heroes">
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.vuela | fly | titlecase }}</td>
+        <td>{{ item.color }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

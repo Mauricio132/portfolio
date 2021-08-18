@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BusquedaComponent } from './busqueda/busqueda.component';
+import { SearchGifsComponent } from './pages/search-gifs/search-gifs.component';
 
 const routes: Routes = [
   {
     path : '',
-    component : BusquedaComponent
+    component : SearchGifsComponent
   }
 ];
 

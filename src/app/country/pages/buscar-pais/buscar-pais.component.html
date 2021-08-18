@@ -1,0 +1,49 @@
+<section class="content-header content-margin">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Busqueda por País</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--component input-->
+<section class="content content-margin">
+  <div class="container-fluid">
+    <app-input-country
+      (onEnter)="buscar($event)"
+      (onDebounce)="sugerencias($event)"
+      placeholder="Buscar país..."
+    >
+    </app-input-country>
+    <ul *ngIf="mostrarSugerencias" class="list-group">
+      <li
+        class="list-group-item list-group-item-action"
+        (click)="buscarSugerido(termino)"
+      >
+        <a class="nav-link"> Buscar {{ termino }} </a>
+      </li>
+      <li
+        *ngFor="let pais of paisesSugeridos"
+        class="list-group-item list-group-item-action"
+      >
+        <a
+          class="nav-link"
+          [routerLink]="['/country/view-country', pais.alpha2Code]"
+        >
+          {{ pais.name }}
+        </a>
+      </li>
+    </ul>
+
+    <div *ngIf="hayError" class="container-fliud alert alert-primary">
+      No se encontró nada con el término {{ termino }}
+    </div>
+  </div>
+</section>
+
+<!--component table-->
+<ng-template #table [ngIf]="paises.length > 0">
+  <app-table-country [paises]="paises"></app-table-country>
+</ng-template>

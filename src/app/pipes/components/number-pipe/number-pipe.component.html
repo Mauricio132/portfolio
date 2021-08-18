@@ -1,0 +1,77 @@
+<section class="content-header content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <p>
+        <strong class="titulo">Pipes Number |</strong> Pipes incluídos en
+        Angular - Usualmente en el Common Module.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">number</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data | number: "1.2-2" }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Data : {{ ventasNetas + 1000000 }} <br />
+              Transformation :
+              {{ ventasNetas + 1000000 | number: "1.2-2" }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">currency</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data | currency: "CAD":"symbol-narrow":"1.4-4" }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Data : {{ ventasNetas + 1000000 }} <br />
+              Transformation :
+              {{
+                ventasNetas + 1000000 | currency: "CAD":"symbol-narrow":"1.4-4"
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">percent</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data | percent: "2.2-2" }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Data : {{ porcentaje }} <br />
+              Transformation : {{ porcentaje | percent: "2.2-2" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

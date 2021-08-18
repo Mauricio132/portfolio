@@ -1,0 +1,45 @@
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Bandera</th>
+                  <th>Nombre</th>
+                  <th>Población</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pais of paises; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>
+                    <img
+                      class="small-flag"
+                      height="30px"
+                      width="60px"
+                      [src]="pais.flag"
+                    />
+                  </td>
+                  <td>{{ pais.capital }} {{ pais.name }}</td>
+                  <td>{{ pais.population | number }}</td>
+                  <td>
+                    <a [routerLink]="['/country/view-country', pais.alpha2Code]"
+                      >Ver...</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

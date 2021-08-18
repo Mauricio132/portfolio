@@ -1,0 +1,64 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a routerLink="/" class="brand-link">
+    <img
+      src="../../../../assets/dist/img/AdminLTELogo.png"
+      alt="AdminLTE Logo"
+      class="brand-image img-circle elevation-3"
+      style="opacity: 0.8"
+    />
+    <span class="brand-text font-weight-light">AdminLTE 3</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <!---->
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <ul
+          *ngFor="let item of sidebar.data"
+          class="nav nav-pills nav-sidebar flex-column nav-pointer"
+        >
+          <li class="nav-header">{{ item.name }}</li>
+
+          <li *ngFor="let app of item.app" class="nav-item">
+            <ng-template [ngIf]="app.unique" [ngIfElse]="navDropDown">
+              <div class="nav-link" routerLink="{{ app.routerLink }}">
+                <i class="nav-icon {{ app.icon }}"></i>
+                <p>
+                  {{ app.nombre }}
+                  <i class="{{ app.class }}"></i>
+                </p>
+              </div>
+            </ng-template>
+
+            <ng-template #navDropDown>
+              <div class="nav-link">
+                <i class="nav-icon {{ app.icon }}"></i>
+                <p>
+                  {{ app.nombre }}
+                  <i class="{{ app.class }}"></i>
+                </p>
+              </div>
+            </ng-template>
+            <ul *ngFor="let level2 of app.level2" class="nav nav-treeview">
+              <li class="nav-item">
+                <a routerLink="{{ level2.routerLink }}" class="nav-link">
+                  <i class="fa fa-minus nav-icon"></i>
+                  <p>{{ level2.nombre }}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+  </div>
+</aside>

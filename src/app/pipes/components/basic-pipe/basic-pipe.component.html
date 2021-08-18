@@ -1,0 +1,75 @@
+<section class="content-header content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <p>
+        <strong class="titulo">Pipes text |</strong> Pipes incluídos en Angular
+        - Usualmente en el Common Module.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">uppercase</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{"{{ data | uppercase }}"}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Data : {{ nombreLower }} <br />
+              Transformation : {{ nombreLower | uppercase }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">lowercase</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{"{{ data | lowercase }}"}}
+              </span>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <p>
+              Data : {{ nombreUpper }} <br />
+              Transformation : {{ nombreUpper | lowercase }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">titlecase</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{"{{ data | titlecase }}"}}
+              </span>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <p>
+              Data : {{ nombreCompleto }} <br />
+              Transformation : {{ nombreCompleto | titlecase }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

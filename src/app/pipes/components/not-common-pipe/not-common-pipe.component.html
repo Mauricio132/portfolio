@@ -1,0 +1,152 @@
+<section class="content-header content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <p>
+        <strong class="titulo">Pipes not common |</strong> Pipes incluídos en
+        Angular - Usualmente en el Common Module.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">i18nSelect Pipe</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ genero | i18nSelect: data.map }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              Saludos {{ nombre }}, es un placer
+              {{ genero | i18nSelect: invitacionMapa }}
+              a nuestro evento.
+            </p>
+            <button (click)="cambiarCliente()" class="btn btn-primary">
+              Cambiar Persona
+            </button>
+            <hr />
+            <p>data.map : {{ invitacionMapa | json }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">i18nPlural Pipe</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data.length | i18nPlural: data.map }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Actualmente {{ clientes.length | i18nPlural: clientesMapa }}</p>
+            <button
+              (click)="borrarCliente()"
+              label="Borrar cliente"
+              class="btn btn-danger"
+            >
+              borrar
+            </button>
+            <hr />
+            <p>data.map : {{ clientesMapa | json }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Slice Pipe</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data | slice:0:+1 }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Data : {{ clientes | json }}</li>
+              <li>slice:0:2 : {{ clientes | slice: 0:2 }}</li>
+              <li>slice:1:2 : {{ clientes | slice: 1:2 }}</li>
+              <li>slice:1:3 : {{ clientes | slice: 1:3 }}</li>
+              <li>slice:3:3 : {{ clientes | slice: 3:4 }}</li>
+              <li>slice:0:4 : {{ clientes | slice: 0:4 }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">KeyValue Pipe</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data.key }} : {{ data.value }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="row card-body">
+            <div class="col-sm-6">
+              <p>
+                Data: <br />
+                {{ persona | json }}
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <p>Transformation</p>
+              <ul>
+                <li *ngFor="let item of persona | keyvalue">
+                  <b>{{ item.key | titlecase }}:</b> {{ item.value }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Json Pipe</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary"> {{'{{ data | json }}'}} </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>{{ heroes | json }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Async Pipe</h3>
+            <div class="card-tools">
+              <span class="badge badge-primary">
+                {{'{{ data | async }}'}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p *ngIf="!(miObservable | async)">Resolviendo observable...</p>
+            <p>{{ miObservable | async }}</p>
+
+            <p *ngIf="!(valorPromesa | async)">Resolviendo promesa</p>
+            <p>{{ valorPromesa | async }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

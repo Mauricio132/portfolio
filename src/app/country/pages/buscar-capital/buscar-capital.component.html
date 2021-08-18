@@ -1,0 +1,27 @@
+<section class="content-header content-margin">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Busqueda por Capital</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content content-margin">
+  <div class="container-fluid">
+    <app-input-country
+      (onEnter)="buscar($event)"
+      placeholder="Buscar capital..."
+    >
+    </app-input-country>
+  </div>
+
+  <div *ngIf="hayError" class="content container-fliud alert alert-primary">
+    No se encontró nada con el término {{ termino }}
+  </div>
+</section>
+
+<ng-template #table [ngIf]="paises.length > 0">
+  <app-table-country [paises]="paises"></app-table-country>
+</ng-template>

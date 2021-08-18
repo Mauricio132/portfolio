@@ -1,0 +1,8 @@
+<span>Historial de busquedas: </span>
+<span
+  *ngFor="let item of listBusqueda"
+  (click)="loadGifs(item)"
+  class="badge bg-primary mr-1"
+>
+  {{ item }}
+</span>

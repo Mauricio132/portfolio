@@ -1,0 +1,14 @@
+<div class="input-group">
+  <input
+    (keyup.enter)="buscar()"
+    #txtbuscar
+    type="text"
+    class="form-control"
+    placeholder="buscar gifs..."
+  />
+  <div class="input-group-prepend">
+    <button type="button" (click)="buscar()" class="btn btn-success">
+      Search...
+    </button>
+  </div>
+</div>
