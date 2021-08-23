@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-not-common-pipe',
   templateUrl: './not-common-pipe.component.html',
   styleUrls: ['./not-common-pipe.component.css']
 })
-export class NotCommonPipeComponent  {
+export class NotCommonPipeComponent    {
 
   // i18nSelect
   nombre: string = 'Fernando';
   genero: string = 'masculino';
+
   invitacionMapa = {
     'masculino': 'invitarlo',
     'femenino' : 'invitarla'
@@ -39,7 +39,6 @@ export class NotCommonPipeComponent  {
     this.clientes.pop();
   }
 
-
   // KeyValue Pipe
   persona = {
     nombre: 'Fernando',
@@ -63,10 +62,7 @@ export class NotCommonPipeComponent  {
     },
   ]
 
-
   // Async Pipe
-  miObservable = interval(2000); // 0,1,2,3,4,5,6,
-
   valorPromesa = new Promise( (resolve, reject) => {
 
     setTimeout(() => {

@@ -4,14 +4,12 @@ import { GifsService } from '../../services/gifs.service';
 @Component({
   selector: 'app-card-gif',
   templateUrl: './card-gif.component.html',
-  styleUrls: ['./card-gif.component.css']
+  styleUrls: ['./card-gif.component.css'],
 })
-export class CardGifComponent  {
+export class CardGifComponent {
+  constructor(private gifsService: GifsService) {}
 
-  constructor( private gifsService:GifsService ) { }
-
-  get busquedaGifs(){
+  get busquedaGifs() {
     return this.gifsService.listGifs;
   }
-
 }

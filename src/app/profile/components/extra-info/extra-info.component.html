@@ -1,0 +1,31 @@
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">Extra</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <strong><i class="fas fa-language mr-1"></i> Idiomas</strong>
+
+    <p class="text-muted">
+      Español : Natal <br />
+      Inglés : Intermedio
+    </p>
+
+    <hr />
+
+    <strong><i class="fas fa-pencil-alt mr-1"></i> Habilidades</strong>
+
+    <p class="text-muted h6">
+      <span *ngFor="let item of extraInfo" class="badge badge-secondary mr-1">
+        {{ item.name | titlecase }}
+      </span>
+    </p>
+
+    <hr />
+
+    <strong><i class="far fa-file-alt mr-1"></i> Notas</strong>
+
+    <p class="text-muted">...</p>
+  </div>
+  <!-- /.card-body -->
+</div>

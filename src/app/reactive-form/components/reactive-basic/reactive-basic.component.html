@@ -1,0 +1,122 @@
+<!-- Main content -->
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">Reactive Form Basic</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool">
+                <i class="fas fa-info"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <form
+                  (ngSubmit)="guardar()"
+                  autocomplete="off"
+                  [formGroup]="miFormulario"
+                  class="form-horizontal"
+                >
+                  <!-- Group Form Select Region -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Producto :</label>
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nombre"
+                        placeholder="Nombre del producto"
+                      />
+
+                      <span
+                        class="form-text text-danger"
+                        *ngIf="campoEsValido('nombre')"
+                      >
+                        Debe de ser de 3 letras
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Group Form Precio -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Precio :</label>
+                    <div class="col-sm-9">
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="precio"
+                        placeholder="Precio del producto"
+                      />
+                      <span
+                        class="form-text text-danger"
+                        *ngIf="campoEsValido('precio')"
+                      >
+                        El precio debe de ser 0 o mayor
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Group Form Existencias -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Existencias :</label>
+                    <div class="col-sm-9">
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="existencias"
+                        placeholder="Existencias del producto"
+                      />
+
+                      <span
+                        class="form-text text-danger"
+                        *ngIf="campoEsValido('existencias')"
+                      >
+                        Las existencias deben de ser 0 o mayor
+                      </span>
+                    </div>
+                  </div>
+                  <!-- btn submit -->
+                  <div class="col">
+                    <button type="submit" class="btn btn-primary float-end">
+                      Guardar | Ver en consola
+                    </button>
+                  </div>
+                  <hr />
+                </form>
+              </div>
+
+              <div class="col-md-6">
+                <h6 class="text-center">Estado Del Formulario</h6>
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-5">
+                    <p>Valid : {{ miFormulario.valid }}</p>
+                    <p>Pristine : {{ miFormulario.pristine }}</p>
+                    <p>Touched : {{ miFormulario.touched }}</p>
+                  </div>
+                  <div class="col-5">
+                    <p>Value : {{ miFormulario.value | json }}</p>
+                    <p>
+                      Precio : {{ miFormulario.controls.precio.errors | json }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

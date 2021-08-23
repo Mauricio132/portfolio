@@ -1,0 +1,15 @@
+<app-header titleHeader="Cargando..." *ngIf="loading; else pag"> </app-header>
+
+<ng-template #pag>
+  <ng-template [ngIf]="!appError" [ngIfElse]="error">
+    <app-header [titleHeader]="titleHeader"> </app-header>
+
+    <app-card-info [course]="course"> </app-card-info>
+
+    <app-card-item [capture]="course.capture"></app-card-item>
+  </ng-template>
+
+  <ng-template #error>
+    <app-error404></app-error404>
+  </ng-template>
+</ng-template>

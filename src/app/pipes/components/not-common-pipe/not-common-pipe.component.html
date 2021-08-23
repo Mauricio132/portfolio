@@ -139,9 +139,6 @@
             </div>
           </div>
           <div class="card-body">
-            <p *ngIf="!(miObservable | async)">Resolviendo observable...</p>
-            <p>{{ miObservable | async }}</p>
-
             <p *ngIf="!(valorPromesa | async)">Resolviendo promesa</p>
             <p>{{ valorPromesa | async }}</p>
           </div>

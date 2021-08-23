@@ -1,0 +1,139 @@
+<!-- Main content -->
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">Reactive Form Dinamic</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool">
+                <i class="fas fa-info"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <form
+                  autocomplete="off"
+                  [formGroup]="miFormulario"
+                  (ngSubmit)="guardar()"
+                  class="form-horizontal"
+                >
+                  <!-- Group Form Genero -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Género :</label>
+                    <div class="col-sm-9">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          value="M"
+                          formControlName="genero"
+                          id="radioMasculino"
+                        />
+                        <label class="form-check-label" for="radioMasculino">
+                          Masculino
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          value="F"
+                          formControlName="genero"
+                          id="radioFemenino"
+                        />
+                        <label class="form-check-label" for="radioFemenino">
+                          Femenino
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Group Form Notificaciones -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      >Notificaciones :</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="form-check form-switch mt-2">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          formControlName="notificaciones"
+                          id="flexSwitchCheckChecked"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="flexSwitchCheckChecked"
+                          >Quiero recibir notificaciones</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Group Form terminoc y condiciones -->
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"> </label>
+                    <div class="col-sm-9">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          formControlName="condiciones"
+                          id="flexCheckDefault"
+                        />
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Términos y condiciones de uso
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- btn submit -->
+                  <div class="col">
+                    <button
+                      type="submit"
+                      class="btn btn-primary float-end"
+                      [disabled]="btnDisabled"
+                    >
+                      Guardar | ver en consola
+                    </button>
+                  </div>
+                  <hr />
+                </form>
+              </div>
+
+              <div class="col-md-6">
+                <h6 class="text-center">Estado Del Formulario</h6>
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-5">
+                    <p>Valid : {{ miFormulario.valid }}</p>
+                    <p>Value :</p>
+                    <p>{{ miFormulario.value | json }}</p>
+                  </div>
+                  <div class="col-5">
+                    <p>
+                      Persona :
+                      {{ persona | json }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
