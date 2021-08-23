@@ -26,7 +26,6 @@ export class GifsService {
   }
 
   get lastItem() {
-    console.log('service : ' + this.lastArg);
     return this.lastArg;
   }
 
