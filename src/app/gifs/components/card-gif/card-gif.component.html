@@ -1,3 +1,10 @@
+<div
+  *ngIf="busquedaGifs.length === 0"
+  class="content-margin"
+  style="padding-top: 10px"
+>
+  <p class="border-p">Lo sentimos no hay resultados para {{ lastItem }}</p>
+</div>
 <div class="row">
   <div *ngFor="let item of busquedaGifs" class="col-md-4 col-sm-6">
     <div class="card" style="margin-bottom: 10px">

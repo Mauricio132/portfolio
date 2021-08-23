@@ -10,6 +10,7 @@ export class GifsService {
   private _historial: string[] = [];
   private _urlApi: string = apiGiphy;
   public listGifs: Gif[] = [];
+  public lastArg: string = '';
 
   constructor(private http: HttpClient) {
     if (localStorage.getItem('historial')) {
@@ -22,6 +23,11 @@ export class GifsService {
   get listBusqueda() {
     //rompiendo referencia
     return [...this._historial];
+  }
+
+  get lastItem() {
+    console.log('service : ' + this.lastArg);
+    return this.lastArg;
   }
 
   addGifs(item: string) {
@@ -39,6 +45,8 @@ export class GifsService {
   }
 
   loadGifs(item: string) {
+    //obteniendo ultimo arg buscado
+    this.lastArg = item;
     //observable
     //let url: any = `http://api.giphy.com/v1/gifs/search?api_key=sgzx5nQFDDozyd6ipYNFRN06HmDUtpyV&q=${item}&limit=3`;
     const params = new HttpParams()

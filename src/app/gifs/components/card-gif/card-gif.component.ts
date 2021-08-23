@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GifsService } from '../../services/gifs.service';
 
 @Component({
@@ -11,5 +11,9 @@ export class CardGifComponent {
 
   get busquedaGifs() {
     return this.gifsService.listGifs;
+  }
+
+  get lastItem() {
+    return this.gifsService.lastItem;
   }
 }
