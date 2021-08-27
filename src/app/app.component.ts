@@ -13,9 +13,8 @@ export class AppComponent {
   constructor(private http: HttpClient) {
     console.log('iniciando back end stripe...');
 
-    this.http.get(apiUrl).subscribe(
-      (resp) => {},
-      (err) => console.log(err)
-    );
+    this.http
+      .get(apiUrl, { observe: 'response' })
+      .subscribe((err) => console.log(err));
   }
 }

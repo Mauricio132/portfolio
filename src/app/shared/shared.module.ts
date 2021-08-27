@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,19 +17,18 @@ import { HeaderComponent } from './components/header/header.component';
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports : [
+  imports: [CommonModule, RouterModule],
+  exports: [
     Error404Component,
     PreloaderComponent,
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    HeaderComponent
-  ]
+    HeaderComponent,
+    SpinnerComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

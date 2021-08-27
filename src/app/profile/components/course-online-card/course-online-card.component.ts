@@ -8,12 +8,21 @@ import { UdemyService } from '../../services/udemy.service';
   styleUrls: ['./course-online-card.component.css'],
 })
 export class CourseOnlineCardComponent implements OnInit {
-  courseCode: string[] = ['2178672', '3662358', '2819881', '3820862'];
-  course!: CourseDetail;
+  courseCode: string[] = [
+    '2178672',
+    '3662358',
+    '2819881',
+    '3820862',
+    '3187212',
+  ];
+  courses: CourseDetail[] = [];
+  loading: boolean = true;
 
   constructor(private UdemyService: UdemyService) {
-    console.log('iniciando constructor');
-    this.UdemyService.getCourseUdemy('3662358');
+    this.UdemyService.getCoursesUdemy(this.courseCode).subscribe((courses) => {
+      this.courses = courses;
+      this.loading = false;
+    });
   }
 
   ngOnInit(): void {}

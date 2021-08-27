@@ -1,4 +1,4 @@
-<app-header titleHeader="Cargando..." *ngIf="loading; else pag"> </app-header>
+<app-spinner *ngIf="loading; else pag"> </app-spinner>
 
 <ng-template #pag>
   <ng-template [ngIf]="!appError" [ngIfElse]="error">
