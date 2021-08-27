@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { apiUrl } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portfolio';
+
+  constructor(private http: HttpClient) {
+    console.log('iniciando back end stripe...');
+
+    this.http.get(apiUrl).subscribe(
+      (resp) => {},
+      (err) => console.log(err)
+    );
+  }
 }
