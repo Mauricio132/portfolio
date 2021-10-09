@@ -1,0 +1,15 @@
+.map-m {
+  height: 500px;
+}
+
+.map-container {
+  width: 55%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}

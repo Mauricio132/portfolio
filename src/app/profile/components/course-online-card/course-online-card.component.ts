@@ -19,12 +19,11 @@ export class CourseOnlineCardComponent implements OnInit {
   loading: boolean = true;
 
   constructor(private UdemyService: UdemyService) {
-    /*
-    this.UdemyService.getCoursesUdemy(this.courseCode).subscribe((courses) => {
+    /*this.UdemyService.getCoursesUdemy(this.courseCode).subscribe((courses) => {
       this.courses = courses;
       this.loading = false;
-    });
-    */
+    });*/
+
     this.courses = this.UdemyService.getData();
     this.loading = false;
   }

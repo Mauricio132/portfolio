@@ -32,7 +32,7 @@ export class CourseComponent implements OnInit {
           //comprobando si hay data en el back
           if (courses.length > 0) {
             this.course = courses[0];
-            this.titleHeader = this.course.module.replace('-', ' ');
+            this.titleHeader = this.course.module;
           } else {
             this.appError = true;
           }

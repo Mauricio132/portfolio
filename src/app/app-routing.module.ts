@@ -33,8 +33,16 @@ const routes: Routes = [
   },
   /*
   { pathMatch:'heroes'},
-  { pathMatch:'maps'},
-  { pathMatch:'graphic'},*/
+  */
+  {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then((m) => m.MapsModule),
+  },
+  {
+    path: 'graphics',
+    loadChildren: () =>
+      import('./graphics/graphics.module').then((m) => m.GraphicsModule),
+  },
   {
     path: 'course',
     loadChildren: () =>

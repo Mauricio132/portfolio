@@ -1,12 +1,54 @@
 <div
-  *ngIf="busquedaGifs.length === 0"
+  *ngIf="busquedaGifs.data.length === 0"
   class="content-margin"
   style="padding-top: 10px"
 >
   <p class="border-p">Lo sentimos no hay resultados para {{ lastItem }}</p>
 </div>
+
+<div class="content-header" *ngIf="busquedaGifs.data.length != 0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        Items por pag:
+        <select
+          name="miselect"
+          [(ngModel)]="itemsCard"
+          (change)="itemsPerPageChange()"
+        >
+          <option [value]="item" *ngFor="let item of itemsPerPage">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="breadcrumb float-sm-right">
+          <pagination-controls
+            (pageChange)="controlsChange($event)"
+            [maxSize]="9"
+            [responsive]="true"
+            previousLabel="Anterior"
+            nextLabel="Siguiente"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
-  <div *ngFor="let item of busquedaGifs" class="col-md-4 col-sm-6">
+  <div
+    *ngFor="
+      let item of busquedaGifs.data
+        | paginate
+          : {
+              itemsPerPage: itemsPage,
+              currentPage: page,
+              totalItems: busquedaGifs.pagination.total_count
+            }
+    "
+    class="col-md-4 col-sm-6"
+  >
     <div class="card" style="margin-bottom: 10px">
       <div class="card-body">
         <img [src]="item.images.downsized_medium.url" style="width: 100%" />

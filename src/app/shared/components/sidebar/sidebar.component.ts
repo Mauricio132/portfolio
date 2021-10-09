@@ -15,7 +15,7 @@ export class SidebarComponent {
         app: [
           //gifs
           {
-            nombre: 'AppGifs',
+            nombre: 'Gifs Giphy',
             routerLink: 'gifs',
             icon: 'fas fa-cube',
             class: '',
@@ -23,7 +23,7 @@ export class SidebarComponent {
             level2: [],
           }, //country
           {
-            nombre: 'AppCountry',
+            nombre: 'Rest Contries',
             routerLink: '',
             icon: 'fas fa-globe',
             class: 'fas fa-angle-left right',
@@ -41,7 +41,7 @@ export class SidebarComponent {
             ],
           }, //pipes
           {
-            nombre: 'AppPipes',
+            nombre: 'Pipes',
             routerLink: '',
             icon: 'fab fa-pied-piper',
             class: 'fas fa-angle-left right',
@@ -52,21 +52,48 @@ export class SidebarComponent {
             ],
           }, //reactive-form
           {
-            nombre: 'AppReactiveForm',
+            nombre: 'Reactive Form',
             routerLink: 'reactive-form/example',
             icon: 'fab fa-wpforms',
             class: '',
             unique: true,
             level2: [],
-          }, //maps // graphics //CRUD //login
+          }, //maps
+          {
+            nombre: 'Api MapBox',
+            routerLink: 'maps/marker',
+            icon: 'fas fa-map-marked-alt',
+            class: '',
+            unique: true,
+            level2: [],
+          }, // graphics
+          {
+            nombre: 'Graphics',
+            routerLink: 'graphics/view',
+            icon: 'fas fa-chart-bar',
+            class: '',
+            unique: true,
+            level2: [],
+          },
+          //CRUD //login
         ],
       }, //Menu React
       {
         name: 'React Native',
         app: [
           {
+            // rn-store
             nombre: 'E-commerce Mobile',
-            routerLink: 'course/react-native',
+            routerLink: 'course/react-native-rn-store',
+            icon: 'fa fa-mobile',
+            class: '',
+            unique: true,
+            level2: [],
+          },
+          {
+            // rn-giphy
+            nombre: 'Gif Giphy',
+            routerLink: 'course/react-native-rn-giphy',
             icon: 'fa fa-mobile',
             class: '',
             unique: true,
@@ -75,7 +102,7 @@ export class SidebarComponent {
         ],
       }, //Menu PowerBi
       {
-        name: 'PowerBi',
+        name: 'Power Bi',
         app: [
           {
             nombre: 'Business Intelligence',

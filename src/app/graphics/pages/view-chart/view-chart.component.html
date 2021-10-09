@@ -1,0 +1,51 @@
+<section class="content-header content-margin">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Graphics!</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main content -->
+<section class="content content-margin">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card card-body">
+          <app-bar-chart
+            [horizontal]="true"
+            [barChartData]="productoData"
+            [barChartLabels]="proveedoresLabels"
+          ></app-bar-chart>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card card-body">
+          <app-bar-chart
+            [barChartData]="proveedoresData"
+            [barChartLabels]="proveedoresLabels"
+          ></app-bar-chart>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card card-body">
+          <app-pie-chart></app-pie-chart>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card card-body">
+          <app-bar-chart
+            [horizontal]="true"
+            [barChartData]="productoData"
+            [barChartLabels]="proveedoresLabels"
+          ></app-bar-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

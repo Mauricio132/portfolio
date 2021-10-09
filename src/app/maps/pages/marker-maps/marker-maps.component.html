@@ -1,0 +1,88 @@
+<app-header [titleHeader]="titleHeader"></app-header>
+
+<!-- Main content -->
+<section class="content content-margin">
+  <div class="container-fluid content-margin">
+    <div class="row">
+      <div class="col-md-6 map-m">
+        <div #mapa class="map-container"></div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Agregue sus lugares favoritos</h3>
+
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre del marcador"
+                #txtMarker
+              />
+              <div class="input-group-prepend">
+                <button
+                  (click)="agregarMarcador()"
+                  type="button"
+                  class="btn btn-success"
+                >
+                  {{ btnMarker ? "Agregar" : "Editar" }}
+                </button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="card-body table-responsive p-0" style="height: 350px">
+                <table class="table table-head-fixed text-nowrap">
+                  <tbody>
+                    <tr *ngFor="let marcador of marcadores; let i = index">
+                      <td>{{ i + 1 }}</td>
+                      <td
+                        (click)="irMarcador(marcador.marker!)"
+                        class="pointer"
+                      >
+                        <i
+                          class="fas fa-map-marker-alt"
+                          style="font-size: 20px; background-color: ghostwhite"
+                          [style.color]="marcador.color"
+                        ></i>
+                        - {{ marcador.name }}
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-primary btn-sm"
+                          (click)="editarMarcador(i)"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-danger btn-sm"
+                          (click)="borrarMarcador(i)"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

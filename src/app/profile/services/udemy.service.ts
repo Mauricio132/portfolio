@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { combineLatest, Observable, of } from 'rxjs';
 import { Authorization, apiUrlUdemy } from '../../../environments/environment';
@@ -13,12 +13,10 @@ export class UdemyService {
 
   constructor(private http: HttpClient) {}
 
-  //: Observable<CourseDetail>
-
   getCourseUdemy(idCourse: string): Observable<CourseDetail> {
     const headers = new HttpHeaders()
       .set('Accept', 'application/json, text/plain, */*')
-      .set('Authorization', `${this._authorization}`)
+      .set('Authorization', this._authorization)
       .set('Content-Type', 'application/json;charset=utf-8');
 
     return this.http.get<CourseDetail>(

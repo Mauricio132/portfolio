@@ -11,10 +11,11 @@ export class AppComponent {
   title = 'portfolio';
 
   constructor(private http: HttpClient) {
-    console.log('iniciando back end stripe...');
-
-    this.http
-      .get(apiUrl, { observe: 'response' })
-      .subscribe((err) => console.log(err));
+    this.http.get(apiUrl, { observe: 'response' }).subscribe(
+      (resp) => {
+        console.log(`Strapi | status : ${resp.status}`);
+      },
+      (err) => console.log(`strapi | status : ${err.status}`)
+    );
   }
 }
